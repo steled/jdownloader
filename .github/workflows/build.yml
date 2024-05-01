@@ -45,7 +45,7 @@ jobs:
         with:
           context: .
           file: openjdk17-alpine.Dockerfile
-          platforms: inux/amd64,linux/arm64/v8
+          platforms: linux/amd64,linux/arm64/v8
           push: true
           tags: |
             ${{ env.IMAGE_NAME }}:openjdk17-alpine
