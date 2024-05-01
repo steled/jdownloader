@@ -1,11 +1,10 @@
 FROM ubuntu:latest
 
-LABEL dockerhub="https://hub.docker.com/r/antlafarge/jdownloader" \
-      github="https://github.com/antlafarge/jdownloader" \
-      maintainer.name="Antoine Lafarge" \
-      maintainer.email="ant.lafarge@gmail.com" \
-      maintainer.github="https://github.com/antlafarge" \
-      maintainer.dockerhub="https://hub.docker.com/u/antlafarge"
+LABEL dockerhub="https://hub.docker.com/r/steled/jdownloader" \
+      github="https://github.com/steled/jdownloader" \
+      maintainer.name="Stephan" \
+      maintainer.github="https://github.com/steled" \
+      maintainer.dockerhub="https://hub.docker.com/u/steled"
 
 STOPSIGNAL SIGTERM
 
