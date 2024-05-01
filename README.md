@@ -4,8 +4,8 @@ Docker JDownloader 2 headless image with automatic updates.
 
 There is no embedded graphical interface, you should manage your downloads through the official JDownloader web interface here : [https://my.jdownloader.org](https://my.jdownloader.org).
 
-You can report issues in the [github issues](https://github.com/antlafarge/jdownloader/issues).  
-You can send feedback and discuss the project in the [github discussions](https://github.com/antlafarge/jdownloader/discussions).
+You can report issues in the [github issues](https://github.com/steled/jdownloader/issues).  
+You can send feedback and discuss the project in the [github discussions](https://github.com/steled/jdownloader/discussions).
 
 # Versions
 
@@ -13,26 +13,12 @@ You can send feedback and discuss the project in the [github discussions](https:
 
 More recent OpenJDK version.
 
-| arch \ tags | [`latest`](https://hub.docker.com/repository/docker/antlafarge/jdownloader/tags?page=1&ordering=last_updated&name=latest)<br>[`ubuntu`](https://hub.docker.com/repository/docker/antlafarge/jdownloader/tags?page=1&ordering=last_updated&name=ubuntu)<br>[`openjdk17`](https://hub.docker.com/repository/docker/antlafarge/jdownloader/tags?page=1&ordering=last_updated&name=openjdk17)<br>[`openjdk17-ubuntu`](https://hub.docker.com/repository/docker/antlafarge/jdownloader/tags?page=1&ordering=last_updated&name=openjdk17-ubuntu) | [`alpine`](https://hub.docker.com/repository/docker/antlafarge/jdownloader/tags?page=1&ordering=last_updated&name=alpine)<br>[`openjdk17-alpine`](https://hub.docker.com/repository/docker/antlafarge/jdownloader/tags?page=1&ordering=last_updated&name=openjdk17-alpine) |
+| arch \ tags | [`latest`](https://hub.docker.com/repository/docker/steled/jdownloader/tags?page=1&ordering=last_updated&name=latest)<br>[`ubuntu`](https://hub.docker.com/repository/docker/steled/jdownloader/tags?page=1&ordering=last_updated&name=ubuntu)<br>[`openjdk17`](https://hub.docker.com/repository/docker/steled/jdownloader/tags?page=1&ordering=last_updated&name=openjdk17)<br>[`openjdk17-ubuntu`](https://hub.docker.com/repository/docker/steled/jdownloader/tags?page=1&ordering=last_updated&name=openjdk17-ubuntu) | [`alpine`](https://hub.docker.com/repository/docker/steled/jdownloader/tags?page=1&ordering=last_updated&name=alpine)<br>[`openjdk17-alpine`](https://hub.docker.com/repository/docker/steled/jdownloader/tags?page=1&ordering=last_updated&name=openjdk17-alpine) |
 | :--------: | :--------------------: | :--------: |
 | **amd64** | OK | OK |
 | **arm64** | OK | OK |
 | **arm/v7** | OK | NA |
-| **s390x** | [*Need feedback*](https://github.com/antlafarge/jdownloader/discussions) | [*Need feedback*](https://github.com/antlafarge/jdownloader/discussions) |
-
-## OpenJDK 8
-
-Greater platforms compatibility.
-
-| arch \ tags | [`openjdk8`](https://hub.docker.com/repository/docker/antlafarge/jdownloader/tags?page=1&ordering=last_updated&name=openjdk8)<br>[`openjdk8-ubuntu`](https://hub.docker.com/repository/docker/antlafarge/jdownloader/tags?page=1&ordering=last_updated&name=openjdk8-ubuntu) | [`openjdk8-alpine`](https://hub.docker.com/repository/docker/antlafarge/jdownloader/tags?page=1&ordering=last_updated&name=openjdk8-alpine) |
-| :--------: | :--------------------: | :--------: |
-| **amd64** | OK | OK |
-| **arm64** | OK | OK |
-| **arm/v7** | OK | Avoid<br>[Issue 4](https://github.com/antlafarge/jdownloader/issues/4), [Issue 11](https://github.com/antlafarge/jdownloader/issues/11) |
-| **arm/v6** | NA | [*Need feedback*](https://github.com/antlafarge/jdownloader/discussions) |
-| **386** | NA | [*Need feedback*](https://github.com/antlafarge/jdownloader/discussions) |
-| **ppc64le** | [*Need feedback*](https://github.com/antlafarge/jdownloader/discussions) | [*Need feedback*](https://github.com/antlafarge/jdownloader/discussions) |
-| **s390x** | [*Need feedback*](https://github.com/antlafarge/jdownloader/discussions) | [*Need feedback*](https://github.com/antlafarge/jdownloader/discussions) |
+| **s390x** | [*Need feedback*](https://github.com/steled/jdownloader/discussions) | [*Need feedback*](https://github.com/steled/jdownloader/discussions) |
 
 # Docker run
 
@@ -53,7 +39,7 @@ docker run -d &#92;
         -e "LOG_FILE=<b>&#60;LOG_FILE&#62;</b>" &#92;  
         -e "UMASK="<b>&#60;UMASK&#62;</b>" &#92;  
         -p "<b>&#60;PORT&#62;</b>:3129" &#92;  
-    antlafarge/jdownloader:<b>&#60;TAG&#62;</b>
+    steled/jdownloader:<b>&#60;TAG&#62;</b>
 </pre>
 
 *Note : Parameters indented twice are optional.*
@@ -91,7 +77,7 @@ docker run -d \
     -e "JD_PASSWORD=<b>MyGreatPassword</b>" \
         -e "JD_DEVICENAME=<b>JD-DOCKER</b>" \
         -p <b>3129</b>:3129 \
-    antlafarge/jdownloader:<b>latest</b>
+    steled/jdownloader:<b>latest</b>
 </pre>
 
 *Note : Parameters indented twice are optional.*
@@ -103,7 +89,7 @@ docker run -d \
 <pre>
 services:
   jdownloader:
-    image: antlafarge/jdownloader:<b>&#60;TAG&#62;</b>
+    image: steled/jdownloader:<b>&#60;TAG&#62;</b>
     container_name: <b>&#60;CONTAINER-NAME&#62;</b> # optional
     restart: <b>&#60;RESTART&#62;</b> # optional
     user: <b>&#60;UID&#62;:&#60;GID&#62;</b> # optional
@@ -127,7 +113,7 @@ services:
 <pre>
 services:
   jdownloader:
-    image: antlafarge/jdownloader<b>:latest</b>
+    image: steled/jdownloader<b>:latest</b>
     container_name: <b>jdownloader</b> # optional
     restart: <b>on-failure:10</b> # optional
     user: <b>1000:100</b> # optional
@@ -155,7 +141,7 @@ services:
         - I recommend to use `100` as GID (`users` group), because every users should be in this group, and it will be easier to manage multi-users privileges.
     - Setup the access rights : `sudo chmod -R 770 /path/to/downloads/`
     - Do the same for the config directory
-- Run the container by choosing the [docker run](https://github.com/antlafarge/jdownloader#docker-run) or [docker compose](https://github.com/antlafarge/jdownloader#docker-compose) method and customize the parameters by using your [myJDownloader](https://my.jdownloader.org) credentials.
+- Run the container by choosing the [docker run](https://github.com/steled/jdownloader#docker-run) or [docker compose](https://github.com/steled/jdownloader#docker-compose) method and customize the parameters by using your [myJDownloader](https://my.jdownloader.org) credentials.
     - You can check the container logs : `docker logs --follow --tail 100 jdownloader` (`CTRL + C` to quit)
 - Wait some minutes for JDownloader to update and be available in your [myJDownloader web interface](https://my.jdownloader.org).
 
@@ -166,13 +152,13 @@ To disable the automatic upates, go to your JD instance on [my.jdownloader.org](
 
 ## Update the image
 
-- [Docker run](https://github.com/antlafarge/jdownloader#docker-run) method :
+- [Docker run](https://github.com/steled/jdownloader#docker-run) method :
     - Stop the current container : `docker stop jdownloader`
     - Remove the current container : `docker rm jdownloader`
-    - Update the image : `docker pull antlafarge/jdownloader:latest`
+    - Update the image : `docker pull steled/jdownloader:latest`
     - Remove the old untagged images : `docker rmi $(docker images --filter "dangling=true" -q --no-trunc)`
     - Restart the container : `docker start jdownloader`
-- [Docker compose](https://github.com/antlafarge/jdownloader#docker-compose) method :
+- [Docker compose](https://github.com/steled/jdownloader#docker-compose) method :
     - Stop the current container : `docker compose stop jdownloader`
     - Remove the current container : `docker compose rm -f jdownloader`
     - Update the image : `docker compose pull jdownloader`
@@ -182,25 +168,25 @@ To disable the automatic upates, go to your JD instance on [my.jdownloader.org](
 ## Change your email or password
 
 - If you started the container by setting the email and password environment variables :
-  - You must follow the [Update the image](https://github.com/antlafarge/jdownloader#update-the-image) guide by setting the new email or password on the final step.
+  - You must follow the [Update the image](https://github.com/steled/jdownloader#update-the-image) guide by setting the new email or password on the final step.
 - If you started the container without setting the email and password environment variables :
     - Run the **setup** script in the running container : `docker exec jdownloader /jdownloader/setup.sh "my@email.fr" "MyNewPassword" "JD-DOCKER"`.
     - Restart the container :
-        - [Docker run](https://github.com/antlafarge/jdownloader#docker-run) method : `docker restart jdownloader`.
-        - [Docker compose](https://github.com/antlafarge/jdownloader#docker-compose) method : `docker compose restart jdownloader`.
+        - [Docker run](https://github.com/steled/jdownloader#docker-run) method : `docker restart jdownloader`.
+        - [Docker compose](https://github.com/steled/jdownloader#docker-compose) method : `docker compose restart jdownloader`.
 
 ## Special characters in password
 
 If you have special characters in your password, you have 2 solutions :
 
-1. Modify your [docker run](https://github.com/antlafarge/jdownloader#docker-run) command or [docker-compose.yml](https://github.com/antlafarge/jdownloader#docker-compose) file :
+1. Modify your [docker run](https://github.com/steled/jdownloader#docker-run) command or [docker-compose.yml](https://github.com/steled/jdownloader#docker-compose) file :
     - If you have exclamation marks (`!`) in your password and you use a **bash** shell, this special character corresponds to commands history substitution. You might need to disable it by using the command `set +H` in your bash shell.
-    - If your password contains double quotes (`"`), escape it with backslashes (`\`) in the [docker run](https://github.com/antlafarge/jdownloader#docker-run) command or [docker-compose.yml](https://github.com/antlafarge/jdownloader#docker-compose) file. ``"JD_PASSWORD=My\"Great`Password"``
-        - If you use the [docker run](https://github.com/antlafarge/jdownloader#docker-run) method, also escape backticks (`` ` ``) with backslashes (`\`). ``"JD_PASSWORD=My\"Great\`Password"``
+    - If your password contains double quotes (`"`), escape it with backslashes (`\`) in the [docker run](https://github.com/steled/jdownloader#docker-run) command or [docker-compose.yml](https://github.com/steled/jdownloader#docker-compose) file. ``"JD_PASSWORD=My\"Great`Password"``
+        - If you use the [docker run](https://github.com/steled/jdownloader#docker-run) method, also escape backticks (`` ` ``) with backslashes (`\`). ``"JD_PASSWORD=My\"Great\`Password"``
     - Start the container.
 
 2. Or put your password manually in the settings file :
-    - Modify your [docker run](https://github.com/antlafarge/jdownloader#docker-run) command or [docker-compose.yml](https://github.com/antlafarge/jdownloader#docker-compose) file parameters :
+    - Modify your [docker run](https://github.com/steled/jdownloader#docker-run) command or [docker-compose.yml](https://github.com/steled/jdownloader#docker-compose) file parameters :
         - Set an empty `<JD_PASSWORD>` (for disabling password replacement on container start). `"JD_PASSWORD="`
         - Set a `<CONFIG-PATH>` volume to access the JDownloader settings files.
     - Start the container.
@@ -214,7 +200,7 @@ If you have special characters in your password, you have 2 solutions :
 ## Files permissions issue
 
 Check your user can read and write the directories you mounted as [volumes](https://docs.docker.com/engine/reference/run/#volume-shared-filesystems).  
-Read carefully the [Setup guide](https://github.com/antlafarge/jdownloader#docker-compose) and follow the steps.  
+Read carefully the [Setup guide](https://github.com/steled/jdownloader#docker-compose) and follow the steps.  
 Or run the container as root (remove `user` option).
 
 ## Armhf libseccomp2 issue
@@ -236,8 +222,8 @@ If nothing worked and many internal commands fail, your container may lack some 
 
 ## Nothing worked / another issue
 
-You can report issues in the [github issues](https://github.com/antlafarge/jdownloader/issues).  
-You can send feedback and discuss the project in the [github discussions](https://github.com/antlafarge/jdownloader/discussions).
+You can report issues in the [github issues](https://github.com/steled/jdownloader/issues).  
+You can send feedback and discuss the project in the [github discussions](https://github.com/steled/jdownloader/discussions).
 
 # Docker commands reminder
 
@@ -270,7 +256,7 @@ docker rm -f <b>jdownloader</b>
 ## Image delete
 
 <pre>
-docker rmi antlafarge/jdownloader:<b>openjdk17</b>
+docker rmi steled/jdownloader:<b>openjdk17</b>
 </pre>
 
 ## Compose start
