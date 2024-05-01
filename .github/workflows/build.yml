@@ -44,9 +44,24 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: Dockerfile
-          platforms: linux/arm64
+          file: openjdk17-alpine.Dockerfile
+          platforms: inux/amd64,linux/arm64/v8
           push: true
           tags: |
-            ${{ env.IMAGE_NAME }}:latest
+            ${{ env.IMAGE_NAME }}:openjdk17-alpine
+            ${{ env.IMAGE_NAME }}:alpine
+            ${{ env.IMAGE_NAME }}:${{ steps.version.outputs.tag }}
+
+      - name: Build and publish arm64 images
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: openjdk17-ubuntu.Dockerfile
+          platforms: linux/amd64,linux/arm/v7,linux/arm64/v8
+          push: true
+          tags: |
+            ${{ env.IMAGE_NAME }}:openjdk17-ubuntu
+            ${{ env.IMAGE_NAME }}:openjdk17
+            ${{ env.IMAGE_NAME }}:ubuntu
+            ${{ env.IMAGE_NAME }}:latest 
             ${{ env.IMAGE_NAME }}:${{ steps.version.outputs.tag }}
