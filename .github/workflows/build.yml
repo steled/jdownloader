@@ -40,7 +40,7 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Build and publish arm64 images
+      - name: Build and publish openjdk17-alpine images
         uses: docker/build-push-action@v5
         with:
           context: .
@@ -52,7 +52,7 @@ jobs:
             ${{ env.IMAGE_NAME }}:alpine
             ${{ env.IMAGE_NAME }}:${{ steps.version.outputs.tag }}
 
-      - name: Build and publish arm64 images
+      - name: Build and publish openjdk17-ubuntu images
         uses: docker/build-push-action@v5
         with:
           context: .
